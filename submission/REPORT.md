@@ -141,6 +141,9 @@ Chi tiết mAP50 theo từng lớp qua các seed:
    - Trong số 20 ảnh đưa vào CVAT, bộ lọc `width < 20` phát hiện tổng cộng 25 box trên 9 ảnh (`img_0026`: 6 box, `img_0051`: 3 box, `img_0069`: 2 box, `img_0161`: 3 box, `img_0183`: 1 box, `img_0020`: 3 box, `img_0053`: 1 box, `img_0135`: 2 box, `img_0031`: 3 box có `height < 20`).
    - Trong khi đó, mã kiểm tra `BOX_TINY` của pipeline sử dụng ngưỡng khắt khe hơn: cạnh ngắn $\min(w, h) < 12\text{ px}$, chỉ bắt 7 box nhỏ nhất (ví dụ `img_0161` có 3 box, `img_0026` có 1 box cạnh 11.4px, `img_0051` có 1 box cạnh 8.9px).
    - **Nhận xét:** Ngưỡng $20\text{ px}$ của CVAT giúp người duyệt nhìn thấy cả những người đứng ở hậu cảnh rất xa (tầm 15–19px) mà pipeline coi là hợp lệ. CVAT cho phép người kiểm tra bấm phím tắt `Del` để xóa nhanh các box này hoặc giữ lại nếu thấy đặc trưng người vẫn nhìn rõ được bằng mắt.
+
+![Minh chứng bộ lọc CVAT width < 20 px trên ảnh img_0026](../docs/assets/cvat_filter_proof.png)
+
 3. **Ý nghĩa của thuộc tính `can_review`:**
    - Trong thực tế gán nhãn, người gán nhãn (annotator) bật cờ `can_review = true` cho các ca khó, bị che khuất một phần hoặc phân vân giữa xe con và xe tải nhỏ để đề nghị kiểm duyệt viên (reviewer) kiểm tra lại.
    - Trong pipeline tự động, cơ chế này tương đương trực tiếp với việc sinh ra các cảnh báo `WARN` (`POSSIBLE_WRONG_CLASS`, `POSSIBLE_LOOSE_BOX`, `POSSIBLE_FALSE_POS`) và đưa vào hàng đợi ưu tiên `05_review_queue.csv` để chuyển tiếp đến mắt người duyệt.
