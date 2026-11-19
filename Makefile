@@ -1,5 +1,5 @@
-# Lệnh tắt. Chạy từ thư mục gốc repo. Windows không có make: chạy trực tiếp các lệnh python bên dưới.
-PY ?= $(shell command -v python3 >/dev/null 2>&1 && echo python3 || echo python)
+# Lệnh tắt. Chạy từ thư mục gốc repo. Tự động ưu tiên .venv nếu có.
+PY ?= $(shell [ -x .venv/bin/python ] && echo .venv/bin/python || (command -v python3 >/dev/null 2>&1 && echo python3 || echo python))
 export PYTHONUTF8=1
 
 test:            ## chạy unit test (tiến độ của bạn: xanh hết = xong phần code)
