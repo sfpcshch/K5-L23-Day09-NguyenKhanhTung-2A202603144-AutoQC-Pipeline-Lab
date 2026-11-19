@@ -7,7 +7,7 @@ Pipeline đưa ra kết luận **Hold** (mã thoát `10`). Trong số 224 ảnh 
 
 ## 2. Lỗi và phân việc
 
-Thống kê chi tiết từ báo cáo `submission/reports/02_error_list_v1` (tổng cộng 20 mã lỗi, 71 lỗi bắt buộc và 240 dòng cảnh báo trước khi sửa):
+Thống kê chi tiết từ báo cáo `submission/reports/02_error_list_v1` (tổng cộng 20 mã lỗi, 58 lỗi bắt buộc và 149 dòng cảnh báo trước khi sửa):
 
 | Mã lỗi | Số ảnh / dòng | Ai sửa (máy/người) | Vì sao |
 |---|---:|:---:|---|
